@@ -51,7 +51,7 @@
         }
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[-8.397519903936628,115.41026726718285],[-8.341893090837717,115.50719876938219]]);
+        }).fitBounds([[-8.399457752509603,115.42441800771893],[-8.392535114093304,115.43648092672326]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -131,10 +131,10 @@
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 4.0, 
+                weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(221,227,60,0.0)',
+                fillColor: 'rgba(209,111,135,0.0)',
                 interactive: true,
             }
                     break;
@@ -142,14 +142,14 @@
                     return {
                 pane: 'pane_DESA_MENANGA_1',
                 opacity: 1,
-                color: 'rgba(225,255,1,1.0)',
+                color: 'rgba(251,255,0,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 4.0, 
+                weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(92,203,149,0.0)',
+                fillColor: 'rgba(171,217,45,0.0)',
                 interactive: true,
             }
                     break;
@@ -157,14 +157,14 @@
                     return {
                 pane: 'pane_DESA_MENANGA_1',
                 opacity: 1,
-                color: 'rgba(213,1,255,1.0)',
+                color: 'rgba(147,0,210,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 4.0, 
+                weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(231,14,119,0.0)',
+                fillColor: 'rgba(82,31,233,0.0)',
                 interactive: true,
             }
                     break;
@@ -194,6 +194,16 @@
             propertyName: 'NIB_3'}));
         document.getElementsByClassName('search-button')[0].className +=
          ' fa fa-binoculars';
+        resetLabels([layer_DESA_MENANGA_1]);
+        map.on("zoomend", function(){
+            resetLabels([layer_DESA_MENANGA_1]);
+        });
+        map.on("layeradd", function(){
+            resetLabels([layer_DESA_MENANGA_1]);
+        });
+        map.on("layerremove", function(){
+            resetLabels([layer_DESA_MENANGA_1]);
+        });
         </script>
     </body>
 </html>
